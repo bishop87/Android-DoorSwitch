@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnAggiungiNumero"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="btnAggiungiNumeroAbilitatoClick"
+            android:layout_weight="1"
+            android:text="Aggiungi Numero" />
+
+        <Button
+            android:id="@+id/btnTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnTestOrarioClick"
+            android:text="Test Orario" />
+
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lvNumeriAbilitati"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        tools:listitem="@layout/row"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:layout_weight="0.14"
+            android:text="L" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.14"
+            android:layout_marginLeft="18dp"
+            android:text="M"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.14"
+            android:layout_marginLeft="18dp"
+            android:text="M"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.14"
+            android:layout_marginLeft="18dp"
+            android:text="G"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.14"
+            android:layout_marginLeft="18dp"
+            android:text="V"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.14"
+            android:layout_marginLeft="18dp"
+            android:text="S"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.14"
+            android:layout_marginLeft="18dp"
+            android:text="D"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/chkLun"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.14"
+            android:onClick="onChkGiornoClicked" />
+
+        <CheckBox
+            android:id="@+id/chkMar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.14"
+            android:onClick="onChkGiornoClicked" />
+
+        <CheckBox
+            android:id="@+id/chkMer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.14"
+            android:onClick="onChkGiornoClicked" />
+
+        <CheckBox
+            android:id="@+id/chkGio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.14"
+            android:onClick="onChkGiornoClicked" />
+
+        <CheckBox
+            android:id="@+id/chkVen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.14"
+            android:onClick="onChkGiornoClicked" />
+
+        <CheckBox
+            android:id="@+id/chkSab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.14"
+            android:onClick="onChkGiornoClicked" />
+
+        <CheckBox
+            android:id="@+id/chkDom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="0.14"
+            android:onClick="onChkGiornoClicked" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnOrarioInizio"
+        android:layout_marginTop="7dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modifica ora inizio"
+        android:onClick="btnOrarioInizioClick"/>
+
+    <TextView
+        android:id="@+id/txtOrarioInizio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="00:00"/>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/btnOrarioFine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modifica ora fine"
+        android:onClick="btnOrarioFineClick"/>
+
+    <TextView
+        android:id="@+id/txtOrarioFine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:text="00:00"/>
+
+</LinearLayout>

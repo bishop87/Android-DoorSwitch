@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">DoorSwitch</string>
+    <string name="dlg_add_number_cancel">Annulla</string>
+    <string name="dlg_add_number_ok">Ok</string>
+    <string name="dlg_add_number_title">Aggiungi numero</string>
+    <string name="dlg_delete_number_message">Vuoi rimuovere il numero selezionato?</string>
+    <string name="dlg_delete_number_title">Rimuovi numero</string>
+
+</resources>
