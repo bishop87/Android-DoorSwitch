@@ -27,6 +27,8 @@ import it.bishop87.doorswitch.utility.PreferenceUtility;
 import it.bishop87.doorswitch.R;
 import it.bishop87.doorswitch.utility.SettingsModel;
 
+import static it.bishop87.doorswitch.utility.PreferenceUtility.checkDateTime;
+
 public class MainActivity extends Activity {
 
     private List<String> array_list_numeri;
@@ -100,8 +102,8 @@ public class MainActivity extends Activity {
         chkSab.setChecked(settings.isSab());
         chkDom.setChecked(settings.isDom());
 
-        txtOrarioInizio.setText(settings.getOraInizioAsString());
-        txtOrarioFine.setText(settings.getOraFineAsString());
+        txtOrarioInizio.setText(settings.getOrarioInizioAsString());
+        txtOrarioFine.setText(settings.getOrarioFineAsString());
     }
 
     public void btnAggiungiNumeroAbilitatoClick(View view) {
@@ -229,33 +231,11 @@ public class MainActivity extends Activity {
         }
     }
 
-
-    private boolean checkDateTime(SettingsModel settings) {
-        Calendar currentTime = Calendar.getInstance();
-
-        //controllo che il giorno corrente sia tra quelli selezionati
-        if(!settings.getDaysArray()[currentTime.get(Calendar.DAY_OF_WEEK) - 1])
-            return false;
-
-        Calendar fine = Calendar.getInstance();
-        fine.setTimeInMillis(settings.getOraFine());
-        Calendar inizio = Calendar.getInstance();
-        inizio.setTimeInMillis(settings.getOraInizio());
-
-        if(inizio.after(fine)){
-            fine.add(Calendar.DATE, 1);
-        }
-        //se inizio == fine restituisco sempre true per coprire le 24 ore
-        return ((fine.get(Calendar.HOUR_OF_DAY) == inizio.get(Calendar.HOUR_OF_DAY)) &&
-                (fine.get(Calendar.MINUTE) == inizio.get(Calendar.MINUTE))
-               ) || (inizio.before(currentTime) && fine.after(currentTime));
-    }
-
     public void btnTestOrarioClick(View view) {
         String now = new SimpleDateFormat("HH:mm", Locale.getDefault()).format(Calendar.getInstance().getTime());
         SettingsModel settings = PreferenceUtility.readSettings(this);
         String compresa = checkDateTime(settings)?" compresa ":" non compresa ";
-        String intervallo = settings.getOraInizioAsString() + " - " + settings.getOraFineAsString();
+        String intervallo = settings.getOrarioInizioAsString() + " - " + settings.getOrarioFineAsString();
         Toast.makeText(this, "Ora corrente: " + now + compresa +"nell'intervallo " + intervallo ,Toast.LENGTH_SHORT).show();
     }
 }

@@ -6,6 +6,7 @@ import android.text.TextUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 
 public class PreferenceUtility {
@@ -93,6 +94,31 @@ public class PreferenceUtility {
         PreferenceManager.getDefaultSharedPreferences(context).edit()
                 .putLong(PreferenceUtility.SETTINGS_TIME_FINE, settings.getOraFine()).apply();
 
+    }
+
+
+    public static boolean checkDateTime(SettingsModel settings) {
+        Calendar currentTime = Calendar.getInstance();
+
+        //controllo che il giorno corrente sia tra quelli selezionati
+        if(!settings.getDaysArray()[currentTime.get(Calendar.DAY_OF_WEEK) - 1])
+            return false;
+
+        Calendar fine = Calendar.getInstance();
+        fine.set(Calendar.HOUR_OF_DAY, settings.getOraFineAsInt());
+        fine.set(Calendar.MINUTE, settings.getMinutiFineAsInt());
+
+        Calendar inizio = Calendar.getInstance();
+        inizio.set(Calendar.HOUR_OF_DAY, settings.getOraInizioAsInt());
+        inizio.set(Calendar.MINUTE, settings.getMinutiInizioAsInt());
+
+        if(inizio.after(fine)){
+            fine.add(Calendar.DATE, 1);
+        }
+        //se inizio == fine restituisco sempre true per coprire le 24 ore
+        return ((fine.get(Calendar.HOUR_OF_DAY) == inizio.get(Calendar.HOUR_OF_DAY)) &&
+                (fine.get(Calendar.MINUTE) == inizio.get(Calendar.MINUTE))
+        ) || (inizio.before(currentTime) && fine.after(currentTime));
     }
 
 }

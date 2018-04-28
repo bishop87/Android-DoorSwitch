@@ -78,11 +78,24 @@ public class SettingsModel {
         return oraInizio;
     }
 
-    public String getOraInizioAsString() {
+    public String getOrarioInizioAsString() {
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis(oraInizio);
 
         return String.format(Locale.getDefault(),"%02d:%02d", c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
+    }
+
+    public int getOraInizioAsInt(){
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(oraInizio);
+        return c.get(Calendar.HOUR_OF_DAY);
+    }
+
+    public int getMinutiInizioAsInt(){
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(oraInizio);
+
+        return c.get(Calendar.MINUTE);
     }
 
     public void setOraInizio(long oraInizio) {
@@ -93,11 +106,24 @@ public class SettingsModel {
         return oraFine;
     }
 
-    public String getOraFineAsString() {
+    public String getOrarioFineAsString() {
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis(oraFine);
 
         return String.format(Locale.getDefault(),"%02d:%02d", c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE));
+    }
+
+    public int getOraFineAsInt(){
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(oraFine);
+        return c.get(Calendar.HOUR_OF_DAY);
+    }
+
+    public int getMinutiFineAsInt(){
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(oraFine);
+
+        return c.get(Calendar.MINUTE);
     }
 
     public void setOraFine(long oraFine) {
